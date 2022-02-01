@@ -1,17 +1,27 @@
 # Cryptosporidium Decontamination Container
 
-This container has a Kraken2 database to identify sequences that belong to *Cryptosporidium*. Additionally, there is a script included to extract out the sequences that belong to *Cryptosporidium*.
+This container has a Kraken2 custom database to identify sequences that belong to *Cryptosporidium* spps. Additionally, there is a script (`extract_kraken_reads.py`) included in the container to extract out the sequences that belong to *Cryptosporidium*.
 
-#### Requirements:
+The `inspect.txt` file has the full list of *Cryptosporidium* spps that are contained the container. 
 
-- Linux Operating system or Windows Subsystem for Linux (WSL)
-- Docker
+## Building Container
 
-#### Expected Input:
+If you want to rebuild the container you can with the following command, but you will need to **also** build a Kraken2 database to include in it before. 
 
-This workflow as two steps and both must be completed. 
+`docker build -t wdpbcdsphl/crypto_decon_db:1.0 . --force-rm`
 
-##### Kraken2
+It's easier to just pull the container from [dockerhub](https://hub.docker.com/r/wdpbcdsphl/crypto_decon_db), the command for which are below. 
+
+## Requirements:
+
+- Linux Operating system or Windows Subsystem for Linux ([WSL](https://jvhagey.github.io/Tutorials/mydoc_wsl.html))
+- [Docker](https://docs.docker.com/) or [Singularity](https://singularity-userdoc.readthedocs.io/en/latest/) 
+
+## Expected Input:
+
+This workflow as **TWO** steps and **BOTH** must be completed. 
+
+## Kraken2
 
 **--use-names**      Print scientific names instead of just taxids  
 **--report**         Print a report with aggregrate counts/clade to file  
@@ -23,17 +33,17 @@ If you aren't familiar with kraken2 you can learn more with these resources:
 - [kraken2 github](https://github.com/DerrickWood/kraken2/wiki)
 - [kraken2 paper](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1891-0)
 
-##### extract_kraken_reads.py 
+## extract_kraken_reads.py 
 
 **-s file_1.fastq -s2 file_2.fastq**                    Fastq files you passed to Kraken2 with the `--paired` flag    
 **-o file_Kclean_1.fastq -o2 file_Kclean_2.fastq**      The name you want to assign to the forward and reverse reads after extracting *Cryptosporidium* sequences  
 **--report reportFile.txt**                             Report file that came from Kraken2 `--report`  
-**-k reportFile.kraken**                               Output file that came from Kraken2 `--output` 
+**-k reportFile.kraken**                                Output file that came from Kraken2 `--output` 
 
 If you aren't familiar with krakentools you can learn more with these resources:
 - [krakentools](https://github.com/jenniferlu717/KrakenTools)
 
-#### Expected Output: 
+## Expected Output: 
 
 Kraken2 will create two files:
 - File_name.txt (report)
@@ -70,13 +80,15 @@ To get a full list of arguments for Kraken2 run the following. **You will need t
 docker run -v $PWD:/data wdpbcdsphl/crypto_decon_db:1.0 kraken2 --help
 ```
 
-You can run Kraken2 on your samples with the following line:
+You can run Kraken2 on your samples with the following line, but will need to change a the files names:
+- `file_1.fastq` and `file_2.fastq` should be the name of your input sequence files. 
+- `reportFile.txt` and `reportFile.kraken` should be names you choose and can be whatever you want, but keep the same extensions (i.e. `.txt` and `.kraken`).
 
 ```
 docker run -v $PWD:/data wdpbcdsphl/crypto_decon_db:1.0 kraken2 --use-names --report reportFile.txt --paired file_1.fastq file_2.fastq --output reportFile.kraken
 ```
 
-**Note you might need to add the flag `--privileged` after `-v` if you get an error regarding permissions being denied.** If you are certain that there are sequences in your fastq files, the error might look something like this.
+**Note you might need to add the flag `--privileged` after `-v` if you get an error regarding permissions being denied.** If you are certain that there are sequences in your fastq files (i.e. they aren't empty), the error might look something like this.
 
 ```
 Loading database information... done.
@@ -100,7 +112,7 @@ export SINGULARITY_PULLFOLDER=/$PATH/Singularity_Containers
 export SINGULARITY_CACHEDIR=/$PATH/Singularity_Containers
 ```
 
-Once the sif file is downloaded we can run Kraken2. **Again make sure you are in the directory were your files are located!!**
+Once the sif file is downloaded we can run Kraken2. **Again, make sure you are in the directory were your files are located!!**
 
 ```
 singularity exec $SINGULARITY_CACHEDIR/crypto_decon_db.sif kraken2 --use-names --report reportFile.txt --paired file_1.fastq file_2.fastq --output reportFile.kraken
@@ -110,14 +122,18 @@ singularity exec $SINGULARITY_CACHEDIR/crypto_decon_db.sif kraken2 --use-names -
 
 ### Running with Docker
 
-To complete the workflow run the script to extract the reads that belong to *Cryptosporidium*.
+To complete the workflow run the script to extract the reads that belong to *Cryptosporidium*. You need to change the following in the line below to make the script run with your files:
+- `file_1.fastq` and `file_2.fastq` should be the name of your input sequence files. 
+- `file_Kclean_1.fastq`, `file_Kclean_2.fastq` should be custom names for output files, but keep the same extensions (i.e. `.fastq`). 
+- `reportFile.txt` and `reportFile.kraken` should be the same as the names you choose in step 1 for the kraken2 output. 
 
 ```
 docker run -v $PWD:/data wdpbcdsphl/crypto_decon_db:1.0 extract_kraken_reads.py --include-children --fastq-output --taxid 5806 -s file_1.fastq -s2 file_2.fastq -o file_Kclean_1.fastq -o2 file_Kclean_2.fastq --report reportFile.txt -k reportFile.kraken
 ```
+
 **Note you might need to add the flag `--privileged` after `-v` if you get an error regarding permissions being denied.**
 
-This script (`extract_kraken_reads.py`) was originally written by Jen Lu @ John Hopkins and can be found [here](https://github.com/jenniferlu717/KrakenTools). Edits were made to work with our sequences data and the issue was discussed and documented [here](https://github.com/jenniferlu717/KrakenTools/issues/16). If you get output that does not extract any sequences like below and you have reason to believe there is infact *Cryptosporidium* in the sample contact the WDPB Bioinformatics team for assistance debugging. 
+This script (`extract_kraken_reads.py`) was originally written by Jen Lu @ John Hopkins and can be found [here](https://github.com/jenniferlu717/KrakenTools). Edits were made to work with our sequences data and the issue was discussed and documented [here](https://github.com/jenniferlu717/KrakenTools/issues/16). If you get output that does not extract any sequences (see example below) and you have reason to believe there is *Cryptosporidium* in the sample contact the WDPB Bioinformatics team for assistance debugging. 
 
 ```
 PROGRAM START TIME: 11-19-2021 08:54:26
@@ -137,7 +153,12 @@ PROGRAM START TIME: 11-19-2021 08:54:26
 
 ### Running with Singularity
 
-Complete the workflow by extract the reads assigned to *Cryptosporidium*.  **Make sure you are in the directory were your files are located!!**
+Complete the workflow by extracting the reads assigned to *Cryptosporidium*. **Make sure you are in the directory were your files are located!!**
+
+Just like with Docker you need to change the following in the line below to make the script run with your files:
+- `file_1.fastq` and `file_2.fastq` should be the name of your input sequence files. 
+- `file_Kclean_1.fastq`, `file_Kclean_2.fastq` should be custom names for output files, but keep the same extensions (i.e. `.fastq`, `.txt` and `.kraken`). 
+- `reportFile.txt` and `reportFile.kraken` should be the same as the names you choose in step 1 for the kraken2 output.  
 
 ```
 singularity exec $SINGULARITY_CACHEDIR/crypto_decon_db.sif extract_kraken_reads.py --include-children --fastq-output --taxid 5806 -s file_1.fastq -s2 file_2.fastq -o file_Kclean_1.fastq -o2 file_Kclean_2.fastq --report reportFile.txt -k reportFile.kraken

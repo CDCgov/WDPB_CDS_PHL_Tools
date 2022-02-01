@@ -1,0 +1,31 @@
+100.00  26586801        0       R       1       root
+100.00  26586801        0       R1      131567    cellular organisms
+100.00  26586801        0       D       2759        Eukaryota
+100.00  26586801        0       D1      2698737       Sar
+100.00  26586801        0       D2      33630           Alveolata
+100.00  26586801        0       P       5794              Apicomplexa
+100.00  26586801        0       C       1280412             Conoidasida
+100.00  26586801        0       C1      5796                  Coccidia
+100.00  26586801        0       O       75739                   Eucoccidiorida
+100.00  26586801        0       O1      423054                    Eimeriorina
+100.00  26586801        0       F       35082                       Cryptosporidiidae
+100.00  26586801        4160188 G       5806                          Cryptosporidium
+ 10.09  2682465 2682465 S       515981                          Cryptosporidium ryanae
+  9.97  2649420 2649420 S       83540                           Cryptosporidium felis
+  9.90  2631371 2631371 S       857276                          Cryptosporidium ubiquitum
+  8.93  2374556 2365566 G1      203864                          unclassified Cryptosporidium
+  0.02  4828    0       G2      649395                            Cryptosporidium genotype names
+  0.02  4828    4828    S       1280935                             Cryptosporidium sp. chipmunk genotype I
+  0.02  4162    4162    S       1603071                           Cryptosporidium sp. chipmunk LX-2015
+  8.75  2326148 2326148 S       1176757                         Cryptosporidium viatorum
+  8.31  2208137 2208137 S       93969                           Cryptosporidium meleagridis
+  7.31  1944718 1944718 S       27987                           Cryptosporidium baileyi
+  6.00  1594129 1594129 S       117008                          Cryptosporidium andersoni
+  5.96  1584008 0       S       5808                            Cryptosporidium muris
+  5.96  1584008 1584008 S1      441375                            Cryptosporidium muris RN66
+  4.67  1240382 834872  S       5807                            Cryptosporidium parvum
+  1.52  404720  404720  S1      353152                            Cryptosporidium parvum Iowa II
+  0.00  790     790     S1      414452                            Cryptosporidium parvum Iowa
+  2.67  711006  711006  S       756076                          Cryptosporidium tyzzeri
+  1.28  339428  339428  S       237895                          Cryptosporidium hominis
+  0.53  140845  140845  S       564424                          Cryptosporidium cuniculus

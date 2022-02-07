@@ -1,0 +1,8 @@
+--clientversion=1
+--nthreads=4
+--localdir=/Crypto/localdir/
+--query=/Crypto/testinput/
+--resultsdir=/Crypto/resultsdir
+--reference_folder=/Crypto/db_all3/
+--toolsdir=''
+--scratchdir=''

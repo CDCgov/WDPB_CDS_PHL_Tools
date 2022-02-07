@@ -95,7 +95,9 @@ Hence the genotyping of this sample was wrongly characterized.
 | ------ | ------------ | ---------------- |
 | sample1_skesa.fasta.gz | C. hominis | C. deer mouse genotype III |
 
-Note: It is always important to do the QC analysis and prepare the your assemblies for the Cryptosporidium genotyping
+Note: It is always important to do the QC analysis and prepare your assemblies for the Cryptosporidium genotyping
+
+Tools we used in-house for upstream analysis : FastQC, Trim Galore, Kraken2 [see how to run kraken here](https://github.com/CDCgov/WDPB_CDS_PHL_Tools/tree/master/Crypto_DeconDB_Tool), Skesa for assembly generation.
 
 #### non-crypto
 

@@ -6,6 +6,22 @@ The main functionality of this tool is, it takes the input fasta assemblies and 
 
 #### Disclaimer : Please note that the assays used are not ISO or CLIA certified and should not be considered diagnostic.
 
+### Expected Input
+This repository consists of Cryptosporidium Genotyping characterization tool and associated Docker files required to build a docker image.
+
+ scripts - Genotyping tool and its support files
+ 
+ db_all3 - Blast database
+ 
+ testinput - sample assemblies in fasta format
+ 
+ Dockerfile - Dockerfile if you are building the image
+ 
+ settings.txt - script support file
+ 
+### Expected Output
+Crypto_output contains raw encrypted results, decrypted species characterization in the Final_Species_call file in csv format, and workflow logs 
+
 ### Requirements
 
 - Linux Operating System
@@ -16,23 +32,7 @@ The main functionality of this tool is, it takes the input fasta assemblies and 
 
 To rebuild the container, clone this repository and run the command below.
 
-`docker build -tag(optional) -file Dockerfile <location>`
-
-### Expected Input
-This repository consists of Cryptosporidium Genotyping characterization tool and associated Docker files required to build a docker image.
-
- scripts - Genotyping tool and its support files
- 
- db_all3 - Blast database
- 
- Dockerfile - Dockerfile to build the image
- 
- settings.txt - support file
- 
- testinput - sample input to run the container
- 
-### Expected Output
-Crypto_output contains raw encrypted results, decrypted species characterization in the Final_Species_call file in csv format, and workflow logs  
+`docker build -tag(optional) -file Dockerfile <location>` 
 
 ### Pull the Container
 
@@ -74,20 +74,22 @@ If you encounter any error while running the docker container, add --rm flag to 
 
 Note:
 
-please replace the testinput with your input folder
+Make sure all your files are in the same directory from where you are running the image, if not change the paths to respective locations
+
+please replace the testinput with your input assemblies folder/
 
 Bind the User_settings.txt file as is, it is just to mirror the paths that are present at root level in the docker container for singularity to exec and access the folders
 
 If you want to access the intermediate files, add -B $(pwd)/some_dir:/Crypto/localdir/ to the singularity exec command.
 
-### What if you input bad data or non-crypto data?
+### What if you input bad data or non-crypto data to the tool?
 
 #### Bad data
 
 Running the tool with bad assemblies or low quality assemblies will only result in wrong characterization
 For example:
 low_quality_samples/sample1_skesa.fasta.gz was converted to assemblies with out performing any upstream analysis (read trimming, QC etc)
-so the genotyping of this sample was wrongly characterized.
+Hence the genotyping of this sample was wrongly characterized.
 
 | Genome | wrong species | actual species |
 | ------ | ------------ | ---------------- |

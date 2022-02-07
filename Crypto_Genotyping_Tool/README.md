@@ -97,7 +97,7 @@ Note: It is always important to do the QC analysis and prepare the your assembli
 
 Rememeber the reference database is specifically curated for Cryptosporidium species, there will not be any data that can be aligned and filtered by the BLAST step in the tool if by mistake you input any non Cryptosporidium assemblies. It will throw an error like below
 
-![ScreenShot](images/error.jpg)
+![ScreenShot](error.jpg)
 
 If you see this error image, that means you have wrong inputs for the tool. Make sure to correct the input assemblies.
 

@@ -49,3 +49,28 @@ If you encounter any error while running the docker container, add --rm flag to 
 
 `docker run -v $(pwd)/testinput:/Crypto/testinput/ -v $(pwd)/Crypto_output:/Crypto/resultsdir/ --privileged **--rm** wdpbcdsphl/cryptosporidium_genotyping:1.8`
 
+#### To pull the Container 
+
+##### Using Docker
+
+`docker pull wdpbcdsphl/Cryptosporidium_Genotyping/cryptosporidium_genotyping:1.8`
+
+##### Using Singularity
+
+`singularity pull docker://wdpbcdsphl/cryptosporidium_genotyping:1.8` 
+or
+If you want to name the image locally : `singularity pull <optinal name> docker://wdpbcdsphl/cryptosporidium_genotyping:1.8`
+
+If optional tag is not provided, singularity will pull the image with default name, like cryptosporidium_genotyping-1.8.simg
+
+##### To run the image with Singularity
+
+`singularity exec -B $(pwd)/User_settings.txt:/Crypto/scripts/settings.txt -B $(pwd)/testinput:/Crypto/testinput/ -B $(pwd)/Crypto_output:/Crypto/resultsdir/ **cryptosporidium_genotyping-1.8.simg** python3 /Crypto/scripts/Cryptosporidium_Genotyping_Revised.py`
+
+Note:
+
+please replace the testinput with your input folder
+
+Bind the User_settings.txt file as is, it is just to mirror the paths that are present at root level in the docker container for singularity to exec and access the folders
+
+If you want to access the intermediate files, add -B $(pwd)/some_dir:/Crypto/localdir/ to the singularity exec command.

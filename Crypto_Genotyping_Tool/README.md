@@ -4,6 +4,8 @@
 
 The main functionality of this tool is, it takes the input fasta assemblies and blasts against the reference data base that contains 18s, Actin and hsp70 genes. Species were characterized based on the percent identity and coverage with these genes and will be listed based on the number of hits that each gene has for that species. And the Final_Species_call contains the species characterization result in a readable csv format along with the encrypted blast results.
 
+#### Disclaimer : Please note that the assays used are not ISO or CLIA certified and should not be considered diagnostic.
+
 ### Requirements
 
 - Linux Operating System

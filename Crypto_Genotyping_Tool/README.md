@@ -77,3 +77,28 @@ please replace the testinput with your input folder
 Bind the User_settings.txt file as is, it is just to mirror the paths that are present at root level in the docker container for singularity to exec and access the folders
 
 If you want to access the intermediate files, add -B $(pwd)/some_dir:/Crypto/localdir/ to the singularity exec command.
+
+### What if you input bad data or non-crypto data?
+
+#### Bad data
+
+Running the tool with bad assemblies or low quality assemblies will only result in wrong characterization
+For example:
+low_quality_samples/sample1_skesa.fasta.gz was converted to assemblies with out performing any upstream analysis (read trimming, QC etc)
+so the genotyping of this sample was wrongly characterized.
+
+| Genome | wrong species | actual species |
+| ------ | ------------ | ---------------- |
+| sample1_skesa.fasta.gz | C. hominis | C. deer mouse genotype III |
+
+Note: It is always important to do the QC analysis and prepare the your assemblies for the Cryptosporidium genotyping
+
+#### non-crypto
+
+Rememeber the reference database is specifically curated for Cryptosporidium species, there will not be any data that can be aligned and filtered by the BLAST step in the tool if by mistake you input any non Cryptosporidium assemblies. It will throw an error like below
+
+![ScreenShot](images/error.jpg)
+
+If you see this error image, that means you have wrong inputs for the tool. Make sure to correct the input assemblies.
+
+

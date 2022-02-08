@@ -3,9 +3,9 @@
 
 ## Tool Functionality
 
-This container has a Kraken2 custom database to identify sequences that belong to *Cryptosporidium* spps. Additionally, there is a script (`extract_kraken_reads.py`) included in the container to extract out the sequences that belong to *Cryptosporidium*.
+This tool's intended purpose is to assist with the identification of high quality Cryptosporidium next generation sequencing reads from an Illumina paired end data set for whole genome isolate sequencing. This tool has been converted into a Docker container.  The container has a Kraken2 custom database to identify sequences that belong to *Cryptosporidium* spps. Additionally, there is a script (`extract_kraken_reads.py`) included in the container to extract out the sequences that belong to *Cryptosporidium*.  Also, The `inspect.txt` file has the full list of *Cryptosporidium* spps that are contained the container.
 
-The `inspect.txt` file has the full list of *Cryptosporidium* spps that are contained the container. 
+Based on our internal assessment a minimum threshold of XX% percentage should be classified based on the custom *Cryptosporidium* kraken database to determine if a NGS sequencing read set is acceptable for other WDPB CDS PHL developed tools.
 
 ### Disclaimer
 

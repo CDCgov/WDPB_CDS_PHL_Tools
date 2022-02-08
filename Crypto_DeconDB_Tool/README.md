@@ -1,4 +1,4 @@
-# Cryptosporidium Decontamination Sequencing Read Identiier
+# Cryptosporidium Decontamination Sequencing Read Identifier Container
 
 
 ## Tool Functionality

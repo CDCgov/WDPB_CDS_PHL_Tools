@@ -1,15 +1,15 @@
 # Cryptosporidium Decontamination Container
 
-Developed by: Jill V. Hagey, (qpk9@cdc.gov) Clinical Detection Surveillance/WDPB, CDC
-Tool version - 1.0 and Database was updated on: 2021-12-22
+
+## Tool Functionality
 
 This container has a Kraken2 custom database to identify sequences that belong to *Cryptosporidium* spps. Additionally, there is a script (`extract_kraken_reads.py`) included in the container to extract out the sequences that belong to *Cryptosporidium*.
 
 The `inspect.txt` file has the full list of *Cryptosporidium* spps that are contained the container. 
 
-## Disclaimer
+### Disclaimer
 
-***Please note that the assays used are not ISO or CLIA-certified and should NOT be considered diagnostic!***
+****Please note that the assays used are not ISO or CLIA-certified and should NOT be considered diagnostic!***
 
 ## Building Container
 
@@ -188,3 +188,9 @@ more inspect.txt
 singularity exec $SINGULARITY_CACHEDIR/crypto_decon_db.sif kraken2-inspect --db ../kraken2-db/Crypto_DB_V2 > inspect.txt
 more inspect.txt
 ```
+
+## Developer
+Developed by: Jill V. Hagey, (qpk9@cdc.gov) 
+Clinical Detection Surveillance/WDPB, CDC
+Tool version - 1.0
+Database was updated on: 2021-12-22

@@ -38,7 +38,7 @@ We suggest using the WDPB CDS PHL crypto_decon_db_tool to determine if your sequ
 
 ## Expected Output: 
 
-A csv format file with the following columns: XX,XXX,XXX 
+A csv format file with the following columns: Genome, Result
 
 
 ### Running with Docker
@@ -57,7 +57,7 @@ docker run -v $(pwd)/testinput:/Crypto/testinput/ -v $(pwd)/Crypto_output:/Crypt
 
 You can replace the testinput folder with your input folder
 
-If you encounter any error while running the docker container, add --rm flag to the above command, this will clean up any running containers/file system that interrupts the current run. more info on --rm flag
+If you encounter any error while running the docker container, add --rm flag to the above command, this will clean up any running containers/file system that interrupts the current run. [refer --rm flag here](https://docs.docker.com/engine/reference/run/#clean-up---rm)
 
 ```
 docker run -v $(pwd)/testinput:/Crypto/testinput/ -v $(pwd)/Crypto_output:/Crypto/resultsdir/ --privileged **--rm** wdpbcdsphl/cryptosporidium_genotyping:1.8
@@ -115,4 +115,4 @@ If you see this error image, that means you have wrong inputs for the tool. Make
 Developed by: Anusha Ginni, (qux0@cdc.gov) 
 Clinical Detection Surveillance/WDPB, CDC
 Tool version - 1.8
-Database was updated on: 2021-XX-XX
+Database was updated on: 2021-12-10

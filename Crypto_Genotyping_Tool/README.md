@@ -51,23 +51,16 @@ Next, pull down docker container
 ```
 docker pull wdpbcdsphl/Cryptosporidium_Genotyping/cryptosporidium_genotyping:1.8
 ```
-
-
 ```
-ocker run -v $(pwd)/testinput:/Crypto/testinput/ -v $(pwd)/Crypto_output:/Crypto/resultsdir/ --privileged --rm wdpbcdsphl/cryptosporidium_genotyping:1.8
+docker run -v $(pwd)/testinput:/Crypto/testinput/ -v $(pwd)/Crypto_output:/Crypto/resultsdir/ --privileged --rm wdpbcdsphl/cryptosporidium_genotyping:1.8
 ```
 
 You can replace the testinput folder with your input folder
 
 If you encounter any error while running the docker container, add --rm flag to the above command, this will clean up any running containers/file system that interrupts the current run. more info on --rm flag
 
-
 ```
 docker run -v $(pwd)/testinput:/Crypto/testinput/ -v $(pwd)/Crypto_output:/Crypto/resultsdir/ --privileged **--rm** wdpbcdsphl/cryptosporidium_genotyping:1.8
-```
-
-```
-singularity exec -B $(pwd)/User_settings.txt:/Crypto/scripts/settings.txt -B $(pwd)/testinput:/Crypto/testinput/ -B $(pwd)/Crypto_output:/Crypto/resultsdir/ **cryptosporidium_genotyping-1.8.simg** python3 /Crypto/scripts/Cryptosporidium_Genotyping_Revised.py
 ```
 
 **Note Make sure all your files are in the same directory from where you are running the image, if not change the paths to respective locations
@@ -79,28 +72,22 @@ Bind the User_settings.txt file as is, it is just to mirror the paths that are p
 If you want to access the intermediate files, add -B $(pwd)/some_dir:/Crypto/localdir/ to the singularity exec command.
 
 ```
-
-
 ### Running with Singularity
-
 First, pull down the container
-
-```
 ```
 singularity pull docker://wdpbcdsphl/cryptosporidium_genotyping:1.8
 ```
+Run container with Singularity:
+
 ```
-
 singularity exec -B $(pwd)/User_settings.txt:/Crypto/scripts/settings.txt -B $(pwd)/testinput:/Crypto/testinput/ -B $(pwd)/Crypto_output:/Crypto/resultsdir/ **cryptosporidium_genotyping-1.8.simg** python3 /Crypto/scripts/Cryptosporidium_Genotyping_Revised.py
-
-
 ```
 ### Potential Tool Issues Addressed:
 
 #### What do to if you input bad data or non-crypto assemblies into the tool?  
 
 
-#### Bad data
+##### Bad data
 
 Running the tool with bad assemblies or low quality assemblies will only result in wrong characterization
 For example:
@@ -115,7 +102,7 @@ Note: It is always important to do the QC analysis and prepare your assemblies f
 
 Tools we used in-house for upstream analysis : FastQC, Trim Galore, Kraken2 [see how to run kraken here](https://github.com/CDCgov/WDPB_CDS_PHL_Tools/tree/master/Crypto_DeconDB_Tool), Skesa for assembly generation.
 
-#### non-crypto
+##### non-crypto
 
 Rememeber the reference database is specifically curated for Cryptosporidium species, there will not be any data that can be aligned and filtered by the BLAST step in the tool if by mistake you input any non Cryptosporidium assemblies. It will throw an error like below
 

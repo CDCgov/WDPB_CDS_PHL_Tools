@@ -71,7 +71,6 @@ Bind the User_settings.txt file as is, it is just to mirror the paths that are p
 
 If you want to access the intermediate files, add -B $(pwd)/some_dir:/Crypto/localdir/ to the singularity exec command.
 
-```
 ### Running with Singularity
 First, pull down the container
 ```

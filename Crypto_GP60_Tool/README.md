@@ -35,7 +35,7 @@ To rebuild the container, clone this repository and run the command below:
 Developed by: Alyssa Kelly
 
 
-Modification by: Shatavia Morrison
+Modification by: Shatavia Morrison,SMorrison@cdc.gov
 
 Clinical Detection Surveillance/WDPB, CDC
 

@@ -2,7 +2,7 @@
 
 To determine cutoffs for the percent of reads and total number of reads assigned to *Cryptosporidium* to be considered of high enough quality for use with other WDPB tools we took into account the following:
 
-- The quality of assemblies that were produced by Skesa after extraction of reads assigned to *Cryptosporidium*. This included the following metrics produced by Quast:
+- The quality of assemblies that were produced by [Skesa](https://github.com/ncbi/SKESA) after extraction of reads assigned to *Cryptosporidium*. This included the following metrics produced by [Quast](https://github.com/ablab/quast):
   - Percent of the reference genome covered
   - N50
   - Total alignment length	

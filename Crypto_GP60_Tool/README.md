@@ -1,30 +1,39 @@
-### GP60 Tool
+# Cryptosporidium GP60 Characterization Tool
 
-This tool performs cryptosporidium subtyping by analysing the genetic diversity and characterizes the subtype based on the subtype family, short tandem repeats and secondary repeats. Gp60 tool can process WGS and Sanger sequences. 
 
-#### Requirements
+### Tool Functionality
 
-- Linux Operating system
-- Docker
-- Perl 
+# Disclaimer
 
-#### Expected Input
+****Please note that the assays used are not ISO or CLIA-certified and should NOT be considered diagnostic!***
 
--	--fasta		Fasta file with 1 or more sanger sequences OR a fasta file containing the assembly of 1 samples
--	--blastdb	Prebuilt curated blast database
--	--data		Data type can be sanger or wgs (capitalization does not matter)
+## Building Container
 
-#### Expected Output
+To rebuild the container, clone this repository and run the command below:
+`docker build -tag(optional) -file Dockerfile <location>`
 
-Generates the gp60 subtyping results in a tab demilited text format
 
-#### Usage:
 
-##### Docker:
-`docker pull `
+## Requirements:
 
-`docker run -v $(pwd)/<your input directory>:/inputData --privileged wdpbcdsphl/crypto_gp60:2.4 perl /scripts/gp60Typer.pl --blastdb db/Crypto_GP60_DB --fasta /test/testInput_SM.fasta --data sanger > results_gp60SM-15.txt
-`
-##### Singularity:
 
-`singularity exec -B $(pwd)/SM_TestData:/dataIn crypto_gp60-2.4.simg perl /scripts/gp60Typer.pl --blastdb /db/Crypto_GP60_DB --fasta /dataIn/gp60_seqs.fasta --data sanger
+
+## Expected Input:
+
+
+
+## Expected Output: 
+
+
+### Running with Docker
+
+
+### Running with Singularity
+
+
+## Developer
+Developed by: Alyssa Kelly
+Modification by: Shatavia Morrison
+Clinical Detection Surveillance/WDPB, CDC
+Tool version - 
+Database was updated on: 2021-XX-XX

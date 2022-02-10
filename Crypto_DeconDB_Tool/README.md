@@ -6,10 +6,10 @@
 This tool's intended purpose is to assist with the identification of high quality Cryptosporidium next generation sequencing reads from an Illumina paired end data set for whole genome isolate sequencing. This tool has been converted into a Docker container.  The container has a Kraken2 custom database to identify sequences that belong to *Cryptosporidium* spps. Additionally, there is a script (`extract_kraken_reads.py`) included in the container to extract out the sequences that belong to *Cryptosporidium*.  Also, The `inspect.txt` file has the full list of *Cryptosporidium* spps that are contained the container.
 
 Based on our internal assessment to determine if a NGS sequencing read set is acceptable for other WDPB CDS PHL developed tools minimum thresholds are:
-- ≥75% percentage should be classified as *Cryptosporidium* using on the custom *Cryptosporidium* kraken database in this tool
+- ≥75% should be classified as *Cryptosporidium* using on the custom *Cryptosporidium* kraken database in this tool
 - ≥150,000 reads assigned to *Cryptosporidium*
 
-For further explainination and example stats to explain this decision see the [Example_Stats](https://github.com/CDCgov/WDPB_CDS_PHL_Tools/tree/master/Crypto_DeconDB_Tool/Example_Stats) folder.
+***These cutoffs here are a good general guidelines and are not suitable for all situtiations.*** For further explanation and example stats to explain the choosen cutoffs see the [Example_Stats](https://github.com/CDCgov/WDPB_CDS_PHL_Tools/tree/master/Crypto_DeconDB_Tool/Example_Stats) folder.
 
 ### Disclaimer
 

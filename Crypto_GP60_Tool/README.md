@@ -32,9 +32,9 @@ To rebuild the container, clone this repository and run the command below:
 
 
 ## Developer
-Developed by: Alyssa Kelly
+Developed by: Alyssa Kelly, akelley139@gmail.com
 
-Modification by: Shatavia Morrison,SMorrison@cdc.gov
+Modification by: Shatavia Morrison, SMorrison@cdc.gov
 
 Clinical Detection Surveillance/WDPB, CDC
 

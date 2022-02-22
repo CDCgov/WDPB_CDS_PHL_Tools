@@ -15,21 +15,24 @@ To rebuild the container, clone this repository and run the command below:
 `docker build -tag(optional) -file Dockerfile <location>`
 
 ## Requirements:
-
-
+- Linux Operating system 
+- [Docker](https://docs.docker.com/) 
+- Perl
 
 ## Expected Input:
-
-
+- --fasta		Fasta file with 1 or more sanger sequences OR a fasta file containing the assembly of 1 samples
+- --blastdb	Prebuilt curated blast database
+- --data		Data type can be sanger or wgs (capitalization does not matter)
 
 ## Expected Output: 
-
+Generates the gp60 subtyping results in a tab demilited text format
 
 ### Running with Docker
+``` docker run -v $(pwd)/SM_TestData:/test --privileged wdpbcdsphl/crypto_gp60:2.4 perl /scripts/gp60Typer.pl --blastdb db/Crypto_GP60_DB --fasta /test/testInput_SM.fasta --data sanger > results_gp60SM-15.txt ```
 
 
 ### Running with Singularity
-
+```singularity exec -B $(pwd)/SM_TestData:/dataIn crypto_gp60-2.4.simg perl /scripts/gp60Typer.pl --blastdb /db/Crypto_GP60_DB --fasta /dataIn/gp60_seqs.fasta --data sanger```
 
 ## Developer
 Developed by: Alyssa Kelly, akelley139@gmail.com
@@ -42,4 +45,4 @@ Clinical Detection Surveillance/WDPB, CDC
 Tool version - 
 
 
-Database was updated on: 2021-XX-XX
+Database was updated on: 2021-10-26

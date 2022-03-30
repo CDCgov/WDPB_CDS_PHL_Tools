@@ -87,3 +87,6 @@ please replace the testdata with your samples folder (make sure your samples are
 Bind the User_settings.txt file as is, it is just to mirror the paths that are present at root level in the docker container for singularity to exec and access the folders
 
 If you want to access the intermediate files, add -B $(pwd)/some_dir:/Crypto18s/localdir/ to the singularity exec command
+
+### Developer
+Developed by: Anusha Ginni (qux0@cdc.gov) Clinical Detection Surveillance/WDPB, CDC Tool version - 0.1 Database was updated on: 2021-12-10

@@ -10,6 +10,7 @@ The project was developed to rapidly deploy in-house bioinformatics tool for CDS
 ## List of Available Tools
 
 ### Crypto Genotyping Tool
+### Crypto 18s rRNA typing Tool
 ### Crypto GP60 Tool
 ### Crypto Decontaimination Database Tool
   

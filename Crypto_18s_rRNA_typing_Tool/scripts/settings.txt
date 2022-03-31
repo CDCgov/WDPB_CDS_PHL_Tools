@@ -1,0 +1,5 @@
+--query=/Crypto18s/test1/
+--resultsdir=/Crypto18s/resultsdir/
+--reference_folder=/Crypto18s/BlastDB_18S/
+--localdir=/Crypt18s/localdir/
+

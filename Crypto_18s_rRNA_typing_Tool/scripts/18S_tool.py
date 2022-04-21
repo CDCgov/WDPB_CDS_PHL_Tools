@@ -94,7 +94,7 @@ def run_blastn(args):
                 # databasename =os.path.join(args.reference_folder,new_basedb)
                 # print("this is dbname", databasename)
             try:
-                p = subprocess.Popen(["blastn","-query",query,"-db",databasename,"-evalue","1e-6","-outfmt","6 qseqid sseqid pident length qcovs mismatch gapopen qlen slen bitscore","-max_target_seqs","5","-out",args.localdir+"/"+filename+".blast"],
+                p = subprocess.Popen(["blastn","-query",query,"-db",databasename,"-evalue","1e-6","-outfmt","6 qseqid sseqid pident length qcovs mismatch gapopen qlen slen bitscore","-out",args.localdir+"/"+filename+".blast"],
                 stdout = subprocess.PIPE,stderr=subprocess.STDOUT)
                 for line in p.stdout:
                     # warnlog.warning(line)

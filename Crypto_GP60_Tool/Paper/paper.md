@@ -6,6 +6,7 @@ authors:
   orcid: 0000-0002-3926-7648
 - affiliation: "1, 2"
   name: Alyssa Kelley
+  orcid: 0000-0002-6999-5822
 - affiliation: 1
   name: Shatavia S. Morrison
   orcid:0000-0002-4658-5951

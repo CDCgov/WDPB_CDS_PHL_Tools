@@ -9,10 +9,10 @@ authors:
   orcid: 0000-0002-6999-5822
 - affiliation: 1
   name: Shatavia S. Morrison
-  orcid:0000-0002-4658-5951
-- affiliaton : 1
+  orcid: 0000-0002-4658-5951
+- affiliaton: 1
   name: Dawn M. Roellig
-  orcid:
+  orcid: 0000-0002-0000-0000
 date: "07 June 2022"
 output:
   html_document:
@@ -27,7 +27,7 @@ tags:
 - molecular surveillance
 affiliations:
 - index: 1
-  name: Waterborne Disease Prevention Branch (WDPB), Center for Disease Control and Prevention, Atlanta, GA, USA; 
+  name: Waterborne Disease Prevention Branch (WDPB), Center for Disease Control and Prevention, Atlanta, GA, USA 
 - index: 2
   name: Applied Science, Research and Technology Inc, Smyrna, GA, USA
 ---

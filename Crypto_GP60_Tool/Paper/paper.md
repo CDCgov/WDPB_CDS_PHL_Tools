@@ -84,13 +84,14 @@ subtype family (Ia, Ib, Id, Ie, If, Ig, etc. for *C. hominis* and IIa,
 IIc, IId, IIe, IIf, IIg, IIh, IIi, etc. for *C. parvum*) followed by the
 count of the trinucleotide repeats and the secondary repeats.
 
-![](media/image1.png){width="3.8236122047244097in"
+![](Paper/Nomenclature.png){width="3.8236122047244097in"
 height="1.9819444444444445in"}
 
-*Figure 1: Pictorial representation of the subtype nomenclature.*
-Nomenclature of the *C. parvum* IIaA15G2R2 subtype, which was designated
-as IIa subtype family, has 15 TCA (A15) and 2 TCG (G2) trinucleotide
-repeats, and 2 secondary repeats (R2) as mentioned in Table 1.
+### Figure 1: 
+Pictorial representation of the subtype nomenclature. Nomenclature of the *C. parvum* IIaA15G2R2 subtype, which was designated
+as IIa subtype family, has 15 TCA (A15) and 2 TCG (G2) trinucleotide repeats, and 2 secondary repeats (R2) as mentioned in Table 1.
+![](./Nomenclature.png)
+
 
 *Table 1:* Trinucleotide and secondary repeats present in the
 *Cryptosporidium* *gp60* gene and associated designation for subtype
@@ -122,7 +123,10 @@ in-house to align and filter the sequences. Initially, the tool checks
 for all input parameters, tool requirements and then proceeds to begin
 the analysis. The flow of the tool follows as below.
 
-*Figure 2.* Functional workflow of the GP60 tool
+
+## Figure 2. 
+Functional workflow of the GP60 tool
+![](./Workflow.PNG)
 
 We set threshold parameters to filter the best BLAST hit based on the
 blast metrics results (i.e., coverage, identity, and query length). We

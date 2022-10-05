@@ -49,7 +49,7 @@ First, create an output directory before running the container. This output dire
 Next, pull down docker container
 
 ```
-docker pull wdpbcdsphl/Cryptosporidium_Genotyping/cryptosporidium_genotyping:1.8
+docker pull wdpbcdsphl/cryptosporidium_genotyping/cryptosporidium_genotyping:1.8
 ```
 ```
 docker run -v $(pwd)/testinput:/Crypto/testinput/ -v $(pwd)/Crypto_output:/Crypto/resultsdir/ --privileged --rm wdpbcdsphl/cryptosporidium_genotyping:1.8

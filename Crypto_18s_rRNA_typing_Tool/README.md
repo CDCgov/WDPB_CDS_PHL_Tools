@@ -49,10 +49,10 @@ First, create an output directory before running the container. This output dire
 Next, pull down docker container
 
 ```
-docker pull wdpbcdsphl/cryptosporidium_18s_typing:0.1
+docker pull wdpbcdsphl/crypto_18s_typing:0.2
 ```
 ```
-docker run -v $(pwd)/testdata:/Crypto18s/test1/ -v $(pwd)/18s_output:/Crypto18s/resultsdir/ --privileged wdpbcdsphl/cryptosporidium_18s_typing:0.1
+docker run -v $(pwd)/testdata:/Crypto18s/test1/ -v $(pwd)/18s_output:/Crypto18s/resultsdir/ --privileged wdpbcdsphl/crypto_18s_typing:0.2
 ```
 
 You can replace the testdata folder with your input folder
@@ -74,12 +74,12 @@ If you want to access the intermediate files, add -B $(pwd)/some_dir:/Crypto18s/
 ### Running with Singularity
 First, pull down the container
 ```
-singularity pull docker://wdpbcdsphl/cryptosporidium_18s_typing:0.1
+singularity pull docker://wdpbcdsphl/crypto_18s_typing:0.2
 ```
 Run container with Singularity:
 
 ```
-singularity exec -B $(pwd)/user_settings.txt:/Crypto18s/scripts/settings.txt -B $(pwd)/testdata:/Crypto18s/test1/ -B $(pwd)/18s_output:/Crypto18s/resultsdir/ **wdpbcdsphl/cryptosporidium_18s_typing:0.1.simg** python3 /Crypto18s/scripts/18S_tool.py 
+singularity exec -B $(pwd)/user_settings.txt:/Crypto18s/scripts/settings.txt -B $(pwd)/testdata:/Crypto18s/test1/ -B $(pwd)/18s_output:/Crypto18s/resultsdir/ **wdpbcdsphl/crypto_18s_typing_0.2.sif** python3 /Crypto18s/scripts/18S_tool.py 
 ```
 Note:
 please replace the testdata with your samples folder (make sure your samples are in fasta format)

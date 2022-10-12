@@ -79,7 +79,7 @@ singularity pull docker://wdpbcdsphl/crypto_18s_typing:0.2
 Run container with Singularity:
 
 ```
-singularity exec -B $(pwd)/user_settings.txt:/Crypto18s/scripts/settings.txt -B $(pwd)/testdata:/Crypto18s/test1/ -B $(pwd)/18s_output:/Crypto18s/resultsdir/ **wdpbcdsphl/crypto_18s_typing_0.2.sif** python3 /Crypto18s/scripts/18S_tool.py 
+singularity exec -B $(pwd)/user_settings.txt:/Crypto18s/scripts/settings.txt -B $(pwd)/testdata:/Crypto18s/test1/ -B $(pwd)/18s_output:/Crypto18s/resultsdir/ **crypto_18s_typing_0.2.sif** python3 /Crypto18s/scripts/18S_tool.py 
 ```
 Note:
 please replace the testdata with your samples folder (make sure your samples are in fasta format)

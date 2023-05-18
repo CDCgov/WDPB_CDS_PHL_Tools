@@ -28,11 +28,11 @@ To rebuild the container, clone this repository and run the command below:
 Generates the gp60 subtyping results in a tab demilited text format
 
 ### Running with Docker
-``` docker run -v $(pwd)/SM_TestData:/test --privileged wdpbcdsphl/crypto_gp60:2.4 perl /scripts/gp60Typer.pl --blastdb db/Crypto_GP60_DB --fasta /test/testInput_SM.fasta --data sanger > results_gp60SM-15.txt ```
+``` docker run -v $(pwd)/SM_TestData:/test --privileged wdpbcdsphl/crypto_gp60:2.4 perl /scripts/gp60Typer.pl --blastdb db/Crypto_GP60_DB_2023-16-05 --fasta /test/testInput_SM.fasta --data sanger > results_gp60SM-15.txt ```
 
 
 ### Running with Singularity
-```singularity exec -B $(pwd)/SM_TestData:/dataIn crypto_gp60-2.4.simg perl /scripts/gp60Typer.pl --blastdb /db/Crypto_GP60_DB --fasta /dataIn/gp60_seqs.fasta --data sanger```
+```singularity exec -B $(pwd)/SM_TestData:/dataIn crypto_gp60-2.4.simg perl /scripts/gp60Typer.pl --blastdb /db/Crypto_GP60_DB_2023-16-05 --fasta /dataIn/gp60_seqs.fasta --data sanger```
 
 ## Developer
 Developed by: Alyssa Kelly, akelley139@gmail.com

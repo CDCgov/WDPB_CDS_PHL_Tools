@@ -152,6 +152,29 @@ def write_csvs(args):
             # print("line 166", blast_csvfmt)
             blast_data.to_csv(blast_csvfmt)
 
+def capture_blast(args):
+    dir=args.localdir+"/sorted_blastresults/blast_csv/"
+    src=args.localdir
+    dest=args.resultsdir
+    dummy=args.resultsdir+"/dummyfile"
+    prefix="NOTE: Since the sample did not meet the threshold parameters, blast data was added to results for manual validation"
+    header=("query_genome"+"\t"+"db_bestmatch"+"\t"+"pident"+"\t"+"length"+"\t"+"qcovs"+"\t"+"mismatch"+"\t"+"gapopen"+"\t"+"qlen"+"\t"+"slen"+"\t"+"bitscore")
+    if len(os.listdir(dir)) == 0:
+        # print("dir is empty")
+        for file in os.listdir(args.localdir):
+            if file.endswith(".blast"):
+                shutil.copy(src+file,dest+file)
+                with open(dest+file,'r') as read_obj,open(dummy,'w') as write_obj:
+                    write_obj.write(prefix)
+                    write_obj.write("\n")
+                    write_obj.write("\n")
+                    write_obj.write(header)
+                    write_obj.write("\n")
+                    for line in read_obj:
+                        write_obj.write(line)
+                    os.remove(dest+file) #remove the old file
+                    os.rename(dummy, dest+file) # rename the dummy file
+
 
 def filter_besthit(args):
     i=0
@@ -166,6 +189,7 @@ def filter_besthit(args):
             data["rank"]=data[["query_genome","pident","coverage","bitscore"]].apply(tuple,axis=1).rank(method='dense',ascending=False).astype(int)
             species=data["db_bestmatch"].str.split('_',2, expand=True)
             data["species"] = species[0]+"."+species[1]
+            data = data.assign(NCE_warning=np.where(data["alignment_length"] < 700,"Alignment length is <700bp,do BLAST manual check for Identity and coverage","-"))
             # print(data)
             rankeddata = data.sort_values(["rank"])
             selecthits = rankeddata["rank"]==1
@@ -210,6 +234,7 @@ def main():
     run_blastn(args)
     blast_output(args)
     write_csvs(args)
+    capture_blast(args)
     filter_besthit(args)
     disclaimer(args)
     print(CGRE + "Job has completed successfully" + CEND)

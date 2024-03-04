@@ -1,0 +1,13 @@
+https://depot.galaxyproject.org/singularity/pandas:1.5.2
+https://depot.galaxyproject.org/singularity/blast:2.15.0--pl5321h6f7f691_1
+
+Input:
+input contigs, FASTA
+reference database, prebuilt Blast DB
+
+Output:
+--outdir /path/to/somewhere/with/final/results
+== CSV report
+
+Test data
+$parentDir/testdata --> 3 FASTA samples

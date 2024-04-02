@@ -1,0 +1,39 @@
+Bootstrap: docker
+From: ubuntu:22.04
+Stage: spython-base
+
+%files
+BlastDB_gp60/ db/
+Scripts/ scripts/
+%labels
+maintainer="Alyssa Kelley"
+software="Cryptosporidium_GP60_Subtyping"
+software.version="1.0"
+%post
+
+
+mkdir -p .
+cd .
+
+
+chmod -R 755 /scripts
+chmod -R 755 /db
+
+
+apt-get update && apt-get install -y ncbi-blast+ && \
+apt-get clean
+
+apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
+&& localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+
+LANG=en_US.UTF-8
+
+
+%environment
+export LANG=en_US.UTF-8
+%runscript
+cd .
+exec perl /scripts/gp60Typer.pl "$@"
+%startscript
+cd .
+exec perl /scripts/gp60Typer.pl "$@"

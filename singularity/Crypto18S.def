@@ -1,0 +1,52 @@
+Bootstrap: docker
+From: ubuntu:20.04
+Stage: spython-base
+
+%files
+scripts/ Crypto18s/scripts/
+settings.txt Crypto18s/scripts/
+BlastDB_18S/ Crypto18s/BlastDB_18S/
+%labels
+software="Cryptosporidium 18s rRNA typing"
+software.version="0.1"
+description="Tool performs species genotyping of cryptosporidium using blast reference database that contains 18s rRNA marker gene"
+maintainer="Anusha Ginni"
+LABEl maintainer.email="qxu0@cdc.gov"
+%post
+#base image
+
+#Container details
+
+
+#install dependencies------
+
+apt-get update && apt-get install -y ncbi-blast+ \
+python3.7 \
+python3-pip &&\
+apt-get autoclean
+
+#set working directory------
+
+mkdir -p .
+cd .
+
+#setting permissions
+
+chmod -R 755 Crypto18s/scripts/
+chmod -R 755 Crypto18s/BlastDB_18S/
+
+  #install required libraries------
+#pip3 install -r Crypto18s/scripts/py_modules.txt
+pip3 install pandas
+
+#run command
+
+
+%runscript
+cd .
+exec /bin/bash python3 Crypto18s/scripts/18S_tool.py "$@"
+%startscript
+cd .
+exec /bin/bash python3 Crypto18s/scripts/18S_tool.py "$@"
+
+  

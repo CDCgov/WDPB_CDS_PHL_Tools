@@ -7,6 +7,24 @@
 
 The project was developed to rapidly deploy in-house bioinformatics tool for CDS pathogens.
 
+**Version:** Archived (Not maintained)
+
+**Organization:** NCEZID - Division of Foodborne, Waterborne, and Environmental Diseases (DFWED) 
+
+**Contact Email:** [ncezid_shareit@cdc.gov](mailto:ncezid_shareit@cdc.gov)  
+
+**Description:** This repo contains archived next generation sequencing tools for Cryptosporidium. Please use the CryptoSSU GitHub project which contains an updated version and is supported.
+
+**Exemption:** Non-exempt
+
+**Keywords:** pathogen surveillance, next generation sequencing, bioinformatics, genomics, metagenomics, parasitic disease, Cryptosporidiosis
+
+---
+
+> ⚠️ **Note:** The results produced by this pipeline are not ISO or CLIA-certified and should not be considered diagnostic.
+
+
+
 ## List of Available Tools
 
 ### Crypto Genotyping Tool
